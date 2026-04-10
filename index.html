@@ -25,6 +25,7 @@
 
         .container {
             display: flex;
+            flex-wrap: wrap; /* Wraps to next line for 2x2 grid */
             width: 100%;
             height: 100%;
             gap: 1px; /* Creates a subtle line between sections */
@@ -32,7 +33,8 @@
         }
 
         .avatar-section {
-            flex: 1;
+            flex: 1 1 calc(50% - 1px);
+            min-height: 50vh; /* Ensures a 2x2 split vertically */
             position: relative;
             display: flex;
             flex-direction: column;
@@ -133,6 +135,24 @@
             <div class="header">Avatar 2</div>
             <div class="iframe-container">
                 <iframe src="https://embed.liveavatar.com/v1/686e4d56-0e23-4dec-afb4-8a36885360f0" allow="microphone" title="LiveAvatar Embed 2"></iframe>
+            </div>
+        </div>
+
+        <!-- Avatar 3 - Jan Radovský II -->
+        <div class="avatar-section">
+            <div class="loading-bg">Načítám avatara...</div>
+            <div class="header">Jan Radovský II</div>
+            <div class="iframe-container">
+                <iframe src="https://embed.liveavatar.com/v1/967d3c2a-4f92-4494-8229-788b439fb627" allow="microphone" title="Jan Radovsky II Embed"></iframe>
+            </div>
+        </div>
+
+        <!-- Avatar 4 - Jan Hamr II -->
+        <div class="avatar-section">
+            <div class="loading-bg">Načítám avatara...</div>
+            <div class="header">Jan Hamr II</div>
+            <div class="iframe-container">
+                <iframe src="https://embed.liveavatar.com/v1/1fd70894-45f6-4e35-851c-bb82e4295ef8" allow="microphone" title="Jan Hamr II Embed"></iframe>
             </div>
         </div>
     </div>
