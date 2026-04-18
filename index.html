@@ -15,26 +15,43 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             font-family: 'Inter', system-ui, sans-serif;
             background: var(--bg-grad);
             color: white;
-            overflow: hidden;
             box-sizing: border-box;
         }
 
-        .container {
+        .page {
             display: flex;
-            flex-wrap: wrap; /* Wraps to next line for 2x2 grid */
+            flex-direction: column;
             width: 100%;
-            height: 100%;
-            gap: 1px; /* Creates a subtle line between sections */
-            background: var(--glass-border); /* The line color */
+            min-height: 100vh;
+        }
+
+        .row-label {
+            padding: 18px 32px 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            border-top: 1px solid var(--glass-border);
+        }
+        .row-label:first-child {
+            border-top: none;
+        }
+
+        .avatar-row {
+            display: flex;
+            flex: 1;
+            gap: 1px;
+            background: var(--glass-border);
         }
 
         .avatar-section {
-            flex: 1 1 calc(50% - 1px);
-            min-height: 50vh; /* Ensures a 2x2 split vertically */
+            flex: 1;
+            min-height: 45vh;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -59,7 +76,7 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
             white-space: nowrap;
             transition: all 0.3s ease;
-            pointer-events: none; /* Let clicks pass through if needed */
+            pointer-events: none;
         }
 
         .avatar-section:hover .header {
@@ -78,12 +95,10 @@
             width: 100%;
             height: 100%;
             border: none;
-            /* Force object fitting inside the iframe bounds */
             object-fit: cover; 
             background: transparent;
         }
 
-        /* Loading indicator fallback behind the iframe */
         .loading-bg {
             position: absolute;
             top: 0;
@@ -105,8 +120,11 @@
         }
 
         @media (max-width: 900px) {
-            .container {
+            .avatar-row {
                 flex-direction: column;
+            }
+            .avatar-section {
+                min-height: 35vh;
             }
             .header {
                 font-size: 1rem;
@@ -119,40 +137,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <!-- Avatar 1 -->
-        <div class="avatar-section">
-            <div class="loading-bg">Načítám avatara...</div>
-            <div class="header">Radovský I</div>
-            <div class="iframe-container">
-                <iframe src="https://embed.liveavatar.com/v1/9127a822-f00a-456d-83c2-b8c48b040bbf" allow="microphone" title="Radovský I"></iframe>
+    <div class="page">
+        <!-- Radovský row -->
+        <div class="row-label">Jan Radovský</div>
+        <div class="avatar-row">
+            <div class="avatar-section">
+                <div class="loading-bg">Načítám avatara...</div>
+                <div class="header">Radovský I</div>
+                <div class="iframe-container">
+                    <iframe src="https://embed.liveavatar.com/v1/9127a822-f00a-456d-83c2-b8c48b040bbf" allow="microphone" title="Radovský I"></iframe>
+                </div>
+            </div>
+
+            <div class="avatar-section">
+                <div class="loading-bg">Načítám avatara...</div>
+                <div class="header">Radovský II</div>
+                <div class="iframe-container">
+                    <iframe src="https://embed.liveavatar.com/v1/a6121105-1558-484d-9015-872bf7a86425" allow="microphone" title="Radovský II"></iframe>
+                </div>
             </div>
         </div>
 
-        <!-- Avatar 2 -->
-        <div class="avatar-section">
-            <div class="loading-bg">Načítám avatara...</div>
-            <div class="header">Radovský II</div>
-            <div class="iframe-container">
-                <iframe src="https://embed.liveavatar.com/v1/a6121105-1558-484d-9015-872bf7a86425" allow="microphone" title="Radovský II"></iframe>
+        <!-- Hamr row -->
+        <div class="row-label">Jan Hamr</div>
+        <div class="avatar-row">
+            <div class="avatar-section">
+                <div class="loading-bg">Načítám avatara...</div>
+                <div class="header">Hamr I</div>
+                <div class="iframe-container">
+                    <iframe src="https://embed.liveavatar.com/v1/7388cad4-0452-4289-b627-4c7016b6a53a" allow="microphone" title="Hamr I"></iframe>
+                </div>
             </div>
-        </div>
 
-        <!-- Avatar 3 - Jan Radovský II -->
-        <div class="avatar-section">
-            <div class="loading-bg">Načítám avatara...</div>
-            <div class="header">Hamr I</div>
-            <div class="iframe-container">
-                <iframe src="https://embed.liveavatar.com/v1/7388cad4-0452-4289-b627-4c7016b6a53a" allow="microphone" title="Hamr I"></iframe>
+            <div class="avatar-section">
+                <div class="loading-bg">Načítám avatara...</div>
+                <div class="header">Hamr II</div>
+                <div class="iframe-container">
+                    <iframe src="https://embed.liveavatar.com/v1/1d224de0-f7bf-4286-8a85-0f34fe85f129" allow="microphone" title="Hamr II"></iframe>
+                </div>
             </div>
-        </div>
 
-        <!-- Avatar 4 - Jan Hamr II -->
-        <div class="avatar-section">
-            <div class="loading-bg">Načítám avatara...</div>
-            <div class="header">Hamr II</div>
-            <div class="iframe-container">
-                <iframe src="https://embed.liveavatar.com/v1/1d224de0-f7bf-4286-8a85-0f34fe85f129" allow="microphone" title="Hamr II"></iframe>
+            <div class="avatar-section">
+                <div class="loading-bg">Načítám avatara...</div>
+                <div class="header">Hamr III</div>
+                <div class="iframe-container">
+                    <iframe src="https://embed.liveavatar.com/v1/22146e70-2918-4d19-90a9-e272713a1953" allow="microphone" title="Hamr III"></iframe>
+                </div>
             </div>
         </div>
     </div>
